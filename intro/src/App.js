@@ -6,6 +6,8 @@ import Category from "./Category";
 import { Container, Row, Col } from "reactstrap";
 
 function App() {
+  let categoryInfo={title:"CategoryList"}
+  let productInfo={title:"ProductList",otherting:"othertging"}
   return (
     <div>
       <Container>
@@ -15,11 +17,11 @@ function App() {
 
         <Row>
           <Col xs="3">
-            <Category />
+            <Category info={categoryInfo}/>
           </Col>
 
           <Col xs="9">
-            <Product />
+            <Product info={productInfo}/>
           </Col>
         </Row>
       </Container>
