@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 import UserListComponent from "../components/UserListComponent";
-import { v4 as uuidv4 } from 'uuid';
-import { ToastContainer, toast } from 'react-toastify';
+import { v4 as uuidv4 } from "uuid";
+import { ToastContainer, toast } from "react-toastify";
 
 class HomePage extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class HomePage extends Component {
     this.state = {
       users: [
         {
-          id:uuidv4(),
+          id: uuidv4(),
           name: "Farid",
           surname: "Abishov",
           username: "faridabishov",
@@ -36,24 +36,32 @@ class HomePage extends Component {
       ],
     };
     this.addUser=this.addUser.bind(this)
+    this.deleteUser = this.deleteUSer.bind(this);
   }
 
- addUser=(name,surname,username)=>{
-  if((name,surname,username)){
-  const users=[...this.state.users];
-  users.push({
-    id:uuidv4(),
-    name:name,
-    surname:surname,
-    username:username,
-   });
-   this.setState({users})
-   toast(`${name} Added` )
-  }
-  else{
-   alert("please fill all fiels")
-  }
-}
+  addUser = (name, surname, username) => {
+    if ((name, surname, username)) {
+      const users = [...this.state.users];
+      users.push({
+        id: uuidv4(),
+        name: name,
+        surname: surname,
+        username: username,
+      });
+      this.setState({ users });
+      toast(`${name} Added`);
+    } else {
+      alert("please fill all fiels");
+    }
+  };
+
+  deleteUSer = (obj) => {
+    const users = this.state.users.filter((user) => {
+      return user.id !== obj.id;
+    });
+    this.setState({ users });
+    toast(`${obj.name} Removed`);
+  };
 
   render() {
     return (
@@ -64,7 +72,11 @@ class HomePage extends Component {
             <NavbarBrand href="/">reactstrap</NavbarBrand>
           </div>
         </Navbar>
-        <UserListComponent users={this.state.users} addUser={this.addUser} />
+        <UserListComponent
+          users={this.state.users}
+          addUser={this.addUser}
+          deleteUSer={this.deleteUSer}
+        />
       </div>
     );
   }
