@@ -1,12 +1,13 @@
 import './App.css';
-import CounterButton from './components/CounterButton';
+import CounterBtn from './components/CounterBtn';
 import CounterValue from './components/CounterValue';
+
 
 function App() {
   return (
     <div className="App">
-     <CounterValue/>
-     <CounterButton />
+      <CounterValue></CounterValue>
+      <CounterBtn></CounterBtn>
     </div>
   );
 }
