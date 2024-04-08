@@ -2,17 +2,19 @@ header{
 background-color: orangered;
 padding: 15px 0px;
 }
-a{
+header a{
     text-decoration: none;
     color: #fff;
     margin-right: 15px;
     transition: all ease-in-out .2s;
    
 }
-a:hover{
+header a:hover{
 color: black;
 }
-
+*{
+margin: 0;
+}
 
 
 

@@ -3,13 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-     <ul>
-        <li>salam</li>
-        <li>salam</li>
-        <li>salam</li>
-        <li>salam</li>
-        <li>salam</li>
-     </ul>
+    <h1>Footer section</h1>
     </>
   )
 }
