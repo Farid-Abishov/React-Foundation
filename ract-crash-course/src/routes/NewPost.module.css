@@ -38,6 +38,15 @@
     border-radius: 4px;
     background-color: #34036c;
     color: #e5d5f7;
+    
+  }
+  .actions a{
+    text-decoration: none;
+    color: #e5d6f7;
+    line-height: 34px;
+  }
+  .actions a:hover{
+    color: #d1bee6;
   }
   
   .actions button:hover {
