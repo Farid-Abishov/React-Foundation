@@ -1,33 +1,11 @@
 import Post from "./Post";
 import classes from "./PostList.module.scss";
-import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const PostList = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function fetchPosts() {
-     const response= await fetch("http://localhost:4040/posts")
-        const resData=await response.json();
-        setPosts(resData.posts)
-    }
-    fetchPosts()
-  }, []);
-
-  function addPostHandler(postData) {
-    fetch("http://localhost:4040/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-  }
+  const posts=useLoaderData();
   return (
     <>
-     
 
       {posts.length > 0 && (
         <ul className={classes.posts}>
